@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<body style="background-color: lightskyblue;">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Form Register</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    </head>
+
+
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-xs-12" id="app">
+
+                    <form name="register" action="register_db.php" method="POST" id="register" class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-2"> </div>
+                            <div class="col-sm-6" align="left">
+                                <br>
+                                <h4> บันทึกข้อมูล Covid </h4>
+                            </div>
+                            <input name="Admin_level" type="hidden" id="Admin_level" value="2" />
+                        </div>
+
+                        <div><br>
+                            <br class="form-group">
+                            <div class="col-sm-2" align="right"> วันที่: </div>
+                            <div class="col-sm-6" align="left">
+                                <input v-model="name" name="date" type="date" required class="form-control" id="date" placeholder="วันที่" pattern="^[a-zA-Z]+$" title="ตัวอักษรเท่านั้น" minlength="2" />
+                            </div>
+                            </br>
+                        </div>
+                </div>
+            </div>
+
+            <div>
+                <br class="form-group">
+                <div class="col-sm-1" align="right"> ชื่อ-นามสกุล: </div>
+                <div class="col-sm-6" align="left">
+                    <input v-model="name" name="name" type="name" required class="form-control" id="name" placeholder="ชื่อ-นามสกุล" pattern="^[a-zA-Z]+$" title="ตัวอักษรเท่านั้น" minlength="2" />
+                </div>
+            </div>
+
+            <div>
+                <br>
+                <br class="form-group">
+                <div class="col-sm-1" align="right"> ผลตรวจ ATK: </div>
+            </div>
+            </br>
+            <div>
+                <form>
+                    <div class="col-sm-2" align="right">
+                        <P Align=center><input type="radio" name="gender" value="+" checked> +<br></P>
+                    </div>
+                    <input type="radio" name="gender" value="-"> -<br>
+                </form>
+            </div>
+        </div>
+
+
+        <br class="form-group">
+        <div class="col-sm-2" align="right"> หมายเลขโทรศัพท์ : </div>
+        <div class="col-sm-6" align="left">
+            <input v-model="tel" name="Admin_email" type="tel" class="form-control" id="tel" placeholder="เบอร์โทรศัพท์" />
+        </div>
+        </br>
+        <br class="form-group">
+        <div class="col-sm-2" align="right"> Email : </div>
+        <div class="col-sm-6" align="left">
+            <input v-model="student.gpa" name="email" type="text" class="form-control" id="email" placeholder="Email" />
+        </div>
+        </br>
+        <div class="form-group">
+            <div class="col-sm-2"> </div>
+            <div class="col-sm-6">
+                <button @click="Add()" type="submit" class="btn btn-primary" id="btn">  บันทึกข้อมูล </button>
+            </div>
+            </form>
+            <div class="data">
+                <table class="table">
+                    <tr>
+                        <th>วันที่</th>
+                        <th>ชื่อ-นามสกุล</th>
+                        <th>ผลตรวจATK</th>
+                        <th>หมายเลขโทรศัพท์</th>
+                        <th>Email</th>
+                        <th>Delete</th>
+
+                        <th><button @click="Del(index)">delete</button></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+    </body>
